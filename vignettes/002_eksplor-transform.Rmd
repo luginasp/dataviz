@@ -17,18 +17,32 @@ knitr::opts_chunk$set(echo = TRUE, fig.align = "center", message = FALSE, warnin
 
 Sebelum melakukan pembuatan grafik, Anda harus terlebih dahulu mengetahui informasi apa yang disimpan dalam sebuah dataset. Contohnya Anda setidaknya harus mengetahui informasi jumlah kolom/variabel, jumlah baris/observasi, nama setiap kolom, dan jenis data setiap kolom. Di bawah ini terdapat beberapa fungsi dasar yang tersedia di R untuk mengetahui informasi dari sebuah dataset (dalam contoh ini Anda akan menggunakan dataset iris). Jalankan baris kode tersebut satu per satu menggunakan pemintas **Ctrl + Enter** dan kemudian cari informasi mengenai tujuan penggunaan dari setiap ungsi tersebut dengan menjalankan `help(nama_fungsi)` atau `?nama_fungsi` di konsol RStudio! Tulislah kegunaan dari setiap fungsi secara singkat dengan cara mengisi bagian ___!
 
+```{r nama-fungsi}
+help(dim)
+help(str)
+help(colnames)
+help(head)
+help(tail)
+help(summary)
+help('[')
+help(class)
+help(length)
+help(levels)
+help()
+```
+
 ```{r explore-iris1}
 iris # mencetak data di konsol
-dim(iris) # ___
-str(iris) # ___
-colnames(iris) # ___
-head(iris) # ___
-tail(iris) # ___
-summary(iris) # ___
-iris$Sepal.Length # ekstraksi kolom 'Sepal.Length' dari dataset iris. Jalankan help(`[`) untuk membaca dokumentasi
-class(iris$Species) # ___
-length(iris$Petal.Width) # ___
-levels(iris$Species) # ___
+dim(iris) # retrieve or set the dimension of an object
+str(iris) # display the internal structure of an R obj
+colnames(iris) # set the row or column names of a matrix-like object
+head(iris) # shows the first parts of a vesctor, matix, table, data frame func
+tail(iris) # shows the last parts of a vesctor, matix, table, data frame func
+summary(iris) # rangkum
+iris$Sepal.Length # ekstraksi kolom 'Sepal.Length' dari dataset iris. Jalankan help(`[`) untuk membaca dokumentasi. operators acting on vectors, matrices, arrays and lists to extract or replace parts
+class(iris$Species) # mengklasifikasi
+length(iris$Petal.Width) # ukuran
+levels(iris$Species) # melihat nilai secara level
 length(levels(iris$Species)) # ___
 unique(iris$Species) # ___
 length(unique(iris$Species)) # ___
@@ -44,11 +58,12 @@ Selain fungsi-fungsi di atas Anda juga dapat mendapat informasi mengenai dataset
 ```{r explore-iris2}
 library(visdat)
 library(skimr)
+library(stringi)
 
 typical_data # mencetak dataset typical_data
 
 vis_dat(typical_data)
-skim(typical_data)
+skim(typical_data) # harus pake package stingi
 ```
 
 ## Transformasi Data
@@ -56,7 +71,7 @@ skim(typical_data)
 Aktivitas pembuatan grafik tidak dapat dilepaskan dari aktivitas transformasi data. Salah satu paket yang umum digunakan untuk melakukan transformasi data adalah dplyr. Sekarang aktifkanlah paket tersebut dengan cara mengganti bagian ___ dengan jawaban yang tepat! (Catatan: jika Anda belum memasang paket dplyr, pasanglah paket tersebut terlebih dahulu melalui menu **Tools -- Install Packages...**)
 
 ```{r load-package}
-library(___)
+library(dplyr)
 ```
 
 Terdapat beberapa fungsi utama dari paket dplyr untuk melakukan transformasi data, diantaranya:
