@@ -357,6 +357,13 @@ plot_household
 
 <img src="004_kostumisasi_files/figure-gfm/plot-household2-1.png" style="display: block; margin: auto;" />
 
+``` r
+plot_household +
+  scale_colour_brewer()
+```
+
+<img src="004_kostumisasi_files/figure-gfm/plot-household2-2.png" style="display: block; margin: auto;" />
+
 Sekarang grafik tersebut nampak lebih baik dengan diperbaikinya
 titik-titik data yang menumpuk dan pergantian palet warna. Anda juga
 dapat menggunakan palet warna lain, misalnya `scale_colour_brewer()`
@@ -469,7 +476,7 @@ terjadi pada grafik tersebut?
 
 ``` r
 plot_household +
-  facet_wrap(~year)
+  facet_grid(~year)
 ```
 
 <img src="004_kostumisasi_files/figure-gfm/facet-plot_household-1.png" style="display: block; margin: auto;" />
